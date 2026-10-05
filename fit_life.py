@@ -27,6 +27,11 @@ user_height = float(input('Укажите ваш рост (в метрах, на
 
 
 def calculate_bmi(user_weight: float, user_height: float) -> float:
+    '''Функция вычисляет пользовательский ИМТ на основании параметров:
+       Вес пользователя - user_weight
+       Рост пользователя - user_height
+       Возвращает ИМТ
+    '''
     return user_weight / pow(user_height, 2)
 
 
