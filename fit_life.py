@@ -8,19 +8,10 @@ print('Добро пожаловать в приложение FitLife!')
 
 user_name = input('Пожалуйста, представьтесь (укажите имя): ').title()
 user_age = int(input('Укажите сколько вам лет (полных лет, наприер 22): '))
-
-
-def format_answer(question: str) -> float:
-    """Форматирует ответ пользователя.
-
-    Основные аргументы:
-    question -- оригинальный вопрос
-    """
-    return float(input(question).replace(',', '.'))
-
-
-user_weight = format_answer('Укажите ваш вес (в кг, например 67.5): ')
-user_height = format_answer('Укажите ваш рост (в метрах, например 1.75): ')
+questions = ['Укажите ваш вес (в кг, например 67.5): ',
+             'Укажите ваш рост (в метрах, например 1.75): ']
+user_weight = float(input(questions[0]).replace(',', '.'))
+user_height = float(input(questions[1]).replace(',', '.'))
 
 
 def calculate_bmi(user_weight: float, user_height: float) -> float:
