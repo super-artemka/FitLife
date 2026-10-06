@@ -4,49 +4,39 @@ from math import pow
 WATER_PER_KG = 30
 ML_IN_L = 1000
 
-# 1. Знакомство
-# TODO: Спроси у пользователя имя и сохрани в переменную user_name
-# TODO: Спроси возраст и сохрани в переменную user_age
-# TODO: (не забудь преобразовать в число)
-
 print('Добро пожаловать в приложение FitLife!')
-user_name = input('Пожалуйста, представьтесь: ')
-user_age = int(input('Укажите сколько вам лет: '))
 
-# 2. Сбор данных
-# TODO: Запроси вес (в кг) и сохрани в user_weight (тип float)
-# TODO: Запроси рост (в метрах, например 1.75)
-# TODO: И сохрани в user_height (тип float)
+user_name = input('Пожалуйста, представьтесь (укажите имя): ').title()
+user_age = int(input('Укажите сколько вам лет (полных лет, наприер 22): '))
 
-user_weight = float(input('Укажите ваш вес (в кг, например 67.5): '))
-user_height = float(input('Укажите ваш рост (в метрах, например 1.75): '))
 
-# 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
-# Формула ИМТ: вес разделить на (рост в квадрате)
-# TODO: Рассчитай bmi (Индекс массы тела)
+def format_answer(question: str) -> float:
+    """Форматирует ответ пользователя.
+
+    Основные аргументы:
+    question -- оригинальный вопрос
+    """
+    return float(input(question).replace(',', '.'))
+
+
+user_weight = format_answer('Укажите ваш вес (в кг, например 67.5): ')
+user_height = format_answer('Укажите ваш рост (в метрах, например 1.75): ')
 
 
 def calculate_bmi(user_weight: float, user_height: float) -> float:
-    """Функция вычисляет пользовательский ИМТ на основании параметров:
-    Вес пользователя - user_weight
-    Рост пользователя - user_height
-    Возвращает ИМТ
+    """Вычисляет ИМТ пользователя.
+
+    Основные аргументы:
+    user_weight -- вес пользователя
+    user_height -- рост пользователя
     """
     return user_weight / pow(user_height, 2)
 
 
 bmi = round(calculate_bmi(user_weight, user_height), 1)
 
-# Подсчет воды: вес * 30 мл
-# TODO: Рассчитай water_needed
-
 water_needed_in_ml = user_weight * WATER_PER_KG
 water_needed_in_l = water_needed_in_ml / ML_IN_L
-
-# 4. Вывод красивого результата
-# TODO: Используй f-строку, чтобы вывести приветствие,
-# TODO: Например: "Привет, Иван!"
-# TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
 
 print('')
 print(f'Привет, {user_name}!')
