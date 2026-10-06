@@ -6,10 +6,12 @@ ML_IN_L = 1000
 
 print('Добро пожаловать в приложение FitLife!')
 
-user_name = input('Пожалуйста, представьтесь (укажите имя): ').title()
-user_age = int(input('Укажите сколько вам лет (полных лет, наприер 22): '))
 questions = ['Укажите ваш вес (в кг, например 67.5): ',
-             'Укажите ваш рост (в метрах, например 1.75): ']
+             'Укажите ваш рост (в метрах, например 1.75): ',
+             'Пожалуйста, представьтесь (укажите имя): ',
+             'Укажите сколько вам лет (полных лет, наприер 22): ']
+user_name = input(questions[2]).title()
+user_age = int(input(questions[3]))
 user_weight = float(input(questions[0]).replace(',', '.'))
 user_height = float(input(questions[1]).replace(',', '.'))
 
